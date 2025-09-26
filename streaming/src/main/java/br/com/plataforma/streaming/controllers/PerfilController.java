@@ -22,4 +22,15 @@ public class PerfilController {
     public Perfil salvarPerfil(@RequestBody Perfil perfil) {
         return perfilService.salvarPerfil(perfil);
     }
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deletarPerfil(@PathVariable Long id) {
+        perfilService.deletarPerfil(id);
+        return ResponseEntity.noContent().build(); 
+    }
+    
+    @PutMapping("/{id}")
+    public ResponseEntity<Perfil> atualizarPerfil(@PathVariable Long id, @RequestBody Perfil perfil) {
+        Perfil atualizado = perfilService.atualizarPerfil(id, perfil);
+        return ResponseEntity.ok(atualizado);
+    }
 }
