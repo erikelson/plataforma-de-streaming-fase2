@@ -21,13 +21,11 @@ public class PerfilService {
     }
 
     public Perfil atualizarPerfil(Long id, Perfil perfilAtualizado) {
-        return perfilRepository.findById(id)
-                .map(perfil -> {
-                    perfil.setBiografia(perfilAtualizado.getBiografia());
-                    perfil.setImagemUrl(perfilAtualizado.getImagemUrl());
-                    perfil.setUsuario(perfilAtualizado.getUsuario());
-                    return perfilRepository.save(perfil);
-                })
-                .orElseThrow(() -> new RuntimeException("Perfil não encontrado com id: " + id));
+        return perfilRepository.findById(id).map(perfil -> {
+            perfil.setBiografia(perfilAtualizado.getBiografia());
+            perfil.setImagemUrl(perfilAtualizado.getImagemUrl());
+            perfil.setUsuario(perfilAtualizado.getUsuario());
+            return perfilRepository.save(perfil);
+        }).orElseThrow(() -> new RuntimeException("Perfil não encontrado com id: " + id));
     }
 }

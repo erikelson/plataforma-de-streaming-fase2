@@ -22,8 +22,7 @@ public class MusicaService {
     }
 
     public void deletarMusica(Long id) {
-        Musica musica = musicaRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Música não encontrada com id: " + id));
+        Musica musica = musicaRepository.findById(id).orElseThrow(() -> new RuntimeException("Música não encontrada com id: " + id));
         for (Playlist playlist : musica.getPlaylists()) {
             playlist.getMusicas().remove(musica);
         }

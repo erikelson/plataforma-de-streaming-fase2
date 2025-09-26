@@ -21,12 +21,13 @@ public class PlaylistService {
     }
 
     public void deletarPlaylist(Long id) {
-        playlistRepository.deleteById(id);
+        Playlist playlist = playlistRepository.findById(id).orElseThrow(() -> new RuntimeException("Playlist não encontrada com id: " + id));
+
+        playlistRepository.delete(playlist);
     }
 
     public Playlist atualizarPlaylist(Long id, Playlist playlistAtualizada) {
-        Playlist playlistExistente = playlistRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Playlist não encontrada com id: " + id));
+        Playlist playlistExistente = playlistRepository.findById(id).orElseThrow(() -> new RuntimeException("Playlist não encontrada com id: " + id));
 
         playlistExistente.setNomePlaylist(playlistAtualizada.getNomePlaylist());
         playlistExistente.setUsuario(playlistAtualizada.getUsuario());
