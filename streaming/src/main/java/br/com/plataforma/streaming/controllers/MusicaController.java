@@ -23,4 +23,8 @@ public class MusicaController {
     public Musica salvarMusica(@RequestBody Musica musica){
         return musicaService.salvarMusica(musica);
     }
+    @DeleteMapping("/{id}")
+    public void deletarMusica(@PathVariable Long id) {
+        musicaService.deletarMusica(id);
+    }
 }
