@@ -18,4 +18,8 @@ public class PlaylistService {
     public Playlist salvarPlaylist(Playlist playlist) {
         return playlistRepository.save(playlist);
     }
+
+   public void deletarPlaylist(Long id) {
+        playlistRepository.deleteById(id);
+    }
 }
