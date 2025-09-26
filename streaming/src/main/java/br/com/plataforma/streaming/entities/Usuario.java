@@ -1,5 +1,6 @@
 package br.com.plataforma.streaming.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -20,5 +21,7 @@ public class Usuario {
     private String nome;
     @Column(nullable = false, unique = true)
     private String email;
-
+    @OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL)
+    @JsonIgnore
+    private Perfil perfil;
 }
