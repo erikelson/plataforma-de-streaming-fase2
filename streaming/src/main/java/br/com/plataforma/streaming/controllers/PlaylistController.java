@@ -23,4 +23,8 @@ public class PlaylistController {
         return playlistService.salvarPlaylist(playlist);
     }
 
+   @DeleteMapping("/{id}")
+    public void deletarPlaylist(@PathVariable Long id) {
+        playlistService.deletarPlaylist(id);
+    }
 }
