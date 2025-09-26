@@ -21,7 +21,7 @@ public class Perfil {
     @Column(nullable = false)
     private String imagemUrl;
     @OneToOne
-    @JoinColumn(name = "usuarios_id", unique = true)
+    @JoinColumn(name = "usuario_id", unique = true)
     private Usuario usuario;
 
 
