@@ -19,4 +19,8 @@ public class MusicaService {
     public Musica salvarMusica(Musica musica){
         return musicaRepository.save(musica);
     }
+    
+    public void deletarMusica(Long id) {
+        musicaRepository.deleteById(id);
+    }
 }
