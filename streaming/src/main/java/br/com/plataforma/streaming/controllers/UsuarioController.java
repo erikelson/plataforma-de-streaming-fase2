@@ -22,4 +22,10 @@ public class UsuarioController {
     public Usuario salvarUsuario(@RequestBody Usuario usuario) {
         return usuarioService.salvarUsuario(usuario);
     }
+
+    @DeleteMapping("/{id}")
+    public void deletarPerfil(@PathVariable Long id) {
+        usuarioService.deletarUsuario(id);
+    }
+
 }

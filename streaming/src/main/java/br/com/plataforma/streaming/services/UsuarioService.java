@@ -4,6 +4,7 @@ import br.com.plataforma.streaming.entities.Usuario;
 import br.com.plataforma.streaming.repositories.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
 
 @Service
@@ -18,5 +19,10 @@ public class UsuarioService {
     public Usuario salvarUsuario(Usuario usuario) {
         return usuarioRepository.save(usuario);
     }
+
+    public void deletarUsuario(Long id) {
+        usuarioRepository.deleteById(id);
+    }
+
 
 }

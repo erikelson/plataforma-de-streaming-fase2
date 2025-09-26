@@ -14,17 +14,23 @@ public class PlaylistController {
     private PlaylistService playlistService;
 
     @GetMapping
-    public List<Playlist> listarPlaylists(){
+    public List<Playlist> listarPlaylists() {
         return playlistService.listarPlaylists();
     }
 
     @PostMapping
-    public Playlist salvarPlaylist(@RequestBody Playlist playlist){
+    public Playlist salvarPlaylist(@RequestBody Playlist playlist) {
         return playlistService.salvarPlaylist(playlist);
     }
 
-   @DeleteMapping("/{id}")
+    @DeleteMapping("/{id}")
     public void deletarPlaylist(@PathVariable Long id) {
         playlistService.deletarPlaylist(id);
     }
+
+    @PutMapping("/{id}")
+    public Playlist atualizarPlaylist(@PathVariable Long id, @RequestBody Playlist playlist) {
+        return playlistService.atualizarPlaylist(id, playlist);
+    }
+
 }

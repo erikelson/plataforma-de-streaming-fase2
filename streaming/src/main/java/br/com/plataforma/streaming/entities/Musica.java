@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name="musicas")
+@Table(name = "musicas")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
@@ -29,6 +29,6 @@ public class Musica {
 
     @ManyToMany(mappedBy = "musicas")
     @JsonIgnore
-    private List<Playlist> playlists =  new ArrayList<Playlist>();
+    private List<Playlist> playlists = new ArrayList<Playlist>();
 
 }

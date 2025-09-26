@@ -15,14 +15,15 @@ public class MusicaController {
     private MusicaService musicaService;
 
     @GetMapping
-    public List<Musica> listarTodasMusicas(){
+    public List<Musica> listarTodasMusicas() {
         return musicaService.listaTodasMusicas();
     }
 
     @PostMapping
-    public Musica salvarMusica(@RequestBody Musica musica){
+    public Musica salvarMusica(@RequestBody Musica musica) {
         return musicaService.salvarMusica(musica);
     }
+
     @DeleteMapping("/{id}")
     public void deletarMusica(@PathVariable Long id) {
         musicaService.deletarMusica(id);
